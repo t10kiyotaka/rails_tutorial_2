@@ -12,6 +12,11 @@ module SessionsHelper
     cookies.permanent[:remember_token] = user.remember_token
   end
 
+  # return true when the passed user equal to the logged in user
+  def current_user?(user)
+    user == current_user
+  end
+
   # return logged in user (if the user exists)
   def current_user
     if (user_id = session[:user_id])
@@ -44,5 +49,15 @@ module SessionsHelper
     @current_user = nil
   end
 
+  # redirect to the memorized url (or default url)
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  # store the url that the user was trying to access
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
+  end
 
 end
