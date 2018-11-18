@@ -69,7 +69,7 @@ Rails.application.configure do
   host = 'https://rails-tutorial-181110.herokuapp.com/'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
-    :address => 'smtp.sendgridnet',
+    :address => 'smtp.sendgrid.net',
     :port => '587',
     :authentication => :plan,
     :user_name => ENV['SENDGRID_USERNAME'],
