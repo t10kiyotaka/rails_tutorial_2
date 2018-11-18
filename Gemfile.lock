@@ -232,7 +232,7 @@ DEPENDENCIES
   turbolinks (= 5.0.1)
   uglifier (= 3.2.0)
   web-console (= 3.5.1)
-  will_paginate (= 3.1.6)
+  will_paginate
 
 BUNDLED WITH
    1.17.1
